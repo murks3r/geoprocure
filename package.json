@@ -1,1 +1,28 @@
-eyJuYW1lIjoiZ2VvcHJvY3VyZSIsInR5cGUiOiJtb2R1bGUiLCJ2ZXJzaW9uIjoiMC4wLjEiLCJlbmdpbmVzIjp7Im5vZGUiOiI9PTIuMTIuMCJ9LCJzY3JpcHRzIjp7ImRldiI6ImFzdHJvIGRldiIsImJ1aWxkIjoiYXN0cm8gYnVpbGQiwcHJldmlldyI6ImFzdHJvIHByZXZpZXciLCJhc3RybyI6ImFzdHJvIn0sImRlcGVuZGVuY2llcyI6eyJBc3Ryb0ByZWFjdCI6IjEuMC4wIiwiQXN0cm9Tc2l0ZW1hcCI6IjMuNy4zIiwiQXN0cm9WZXJjZWwiOiIxMS4wLjAiLCJUYWlsd2luZGNzViI6IjQuMy4xIiwiQXR5cGVzUmVhY3QiOiIxOS4yLjciLCJBdHlwZXNSZWFjdERvbSI6IjE5LjIuMyIsImFzdHJvIjoiNy4wLjMiLCJhc3Ryb3NlbyI6IjEuMS4xIiwicmVhY3QiOiIxOS4yLjciLCJyZWFjdERvbSI6IjE5LjIuNyIsInJlc2VuZCI6IjYuMTYuMCIsInRhaWx3aW5kY3MiOiI0LjMuMSJ9fQ==
+{
+  "name": "geoprocure",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/react": "^6.0.0",
+    "@astrojs/sitemap": "^3.7.3",
+    "@astrojs/vercel": "^11.0.0",
+    "@tailwindcss/vite": "^4.3.1",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "astro": "^7.0.3",
+    "astro-seo": "^1.1.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "resend": "^6.16.0",
+    "tailwindcss": "^4.3.1"
+  }
+}
