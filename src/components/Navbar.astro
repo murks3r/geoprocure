@@ -1,0 +1,148 @@
+---
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'en' } = Astro.props;
+
+const navItems = {
+  en: [
+    { label: 'Home', href: '/' },
+    { label: 'Materials', href: '/#materials' },
+    { label: 'Process', href: '/#process' },
+    { label: 'Contact', href: '/#contact' },
+  ],
+  de: [
+    { label: 'Startseite', href: '/de' },
+    { label: 'Materialien', href: '/de#materials' },
+    { label: 'Prozess', href: '/de#process' },
+    { label: 'Kontakt', href: '/de#contact' },
+  ],
+  it: [
+    { label: 'Home', href: '/it' },
+    { label: 'Materiali', href: '/it#materials' },
+    { label: 'Processo', href: '/it#process' },
+    { label: 'Contatto', href: '/it#contact' },
+  ],
+  es: [
+    { label: 'Inicio', href: '/es' },
+    { label: 'Materiales', href: '/es#materials' },
+    { label: 'Proceso', href: '/es#process' },
+    { label: 'Contacto', href: '/es#contact' },
+  ],
+  fr: [
+    { label: 'Accueil', href: '/fr' },
+    { label: 'Matériaux', href: '/fr#materials' },
+    { label: 'Processus', href: '/fr#process' },
+    { label: 'Contact', href: '/fr#contact' },
+  ],
+};
+
+const languages = [
+  { code: 'en', label: 'EN' },
+  { code: 'de', label: 'DE' },
+  { code: 'it', label: 'IT' },
+  { code: 'es', label: 'ES' },
+  { code: 'fr', label: 'FR' },
+];
+
+const currentPath = Astro.url.pathname.replace(/^\/(de|it|es|fr)?$/, '/').replace(/^\/(de|it|es|fr)\//, '/');
+const items = navItems[lang as keyof typeof navItems] || navItems.en;
+---
+
+<nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <!-- Logo -->
+      <a href={lang === 'en' ? '/' : `/${lang}`} class="flex items-center">
+        <span class="text-xl font-bold text-gray-900">Geoprocure</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="hidden md:flex items-center gap-8">
+        {items.map(item => (
+          <a
+            href={item.href}
+            class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
+          >
+            {item.label}
+          </a>
+        ))}
+        
+        <!-- Language Switcher -->
+        <div class="relative group">
+          <button
+            type="button"
+            class="flex items-center gap-1 px-2 py-1 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
+          >
+            {languages.find(l => l.code === lang)?.label}
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          
+          <div class="absolute right-0 mt-1 w-28 bg-white rounded-lg shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+            {languages.map(l => (
+              <a
+                href={l.code === 'en' ? '/' : `/${l.code}`}
+                class:list={[
+                  "block px-3 py-2 text-sm hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg",
+                  lang === l.code ? "bg-blue-50 text-blue-600 font-medium" : "text-gray-700"
+                ]}
+              >
+                {l.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile menu button -->
+      <button
+        type="button"
+        class="md:hidden p-2 text-gray-700"
+        id="mobile-menu-btn"
+      >
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="hidden md:hidden bg-white border-t border-gray-200" id="mobile-menu">
+    <div class="px-4 py-3 space-y-2">
+      {items.map(item => (
+        <a
+          href={item.href}
+          class="block py-2 text-sm font-medium text-gray-700 hover:text-blue-600"
+        >
+          {item.label}
+        </a>
+      ))}
+      <div class="flex gap-2 pt-2 border-t border-gray-100">
+        {languages.map(l => (
+          <a
+            href={l.code === 'en' ? '/' : `/${l.code}`}
+            class:list={[
+              "px-3 py-1 text-sm rounded",
+              lang === l.code ? "bg-blue-600 text-white" : "bg-gray-100 text-gray-700"
+            ]}
+          >
+            {l.label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  
+  btn?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+</script>
