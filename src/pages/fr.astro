@@ -1,0 +1,203 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm';
+import { translations } from '../i18n/translations';
+
+const lang = 'en';
+const t = translations[lang];
+---
+
+<Layout title={t.hero.title} description={t.hero.description} lang={lang}>
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-br from-slate-50 to-blue-50 py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-4xl mx-auto">
+        <p class="text-sm font-medium text-blue-600 uppercase tracking-wide mb-4">
+          {t.hero.subtitle}
+        </p>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+          {t.hero.title}
+        </h1>
+        <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+          {t.hero.description}
+        </p>
+        <div class="flex flex-wrap justify-center gap-4 mb-12">
+          <a
+            href="#contact"
+            class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
+          >
+            {t.hero.cta}
+            <svg class="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+        <div class="flex flex-wrap justify-center gap-6 text-sm text-gray-500">
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>{t.hero.responseTime}</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>{t.hero.minVolume}</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>{t.hero.transit}</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>{t.hero.standards}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">{t.features.title}</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">{t.features.subtitle}</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-gray-50 rounded-xl p-8">
+          <div class="text-blue-600 font-bold text-lg mb-4">{t.features.reliability.title}</div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">{t.features.reliability.heading}</h3>
+          <p class="text-gray-600">{t.features.reliability.description}</p>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-8">
+          <div class="text-blue-600 font-bold text-lg mb-4">{t.features.compliance.title}</div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">{t.features.compliance.heading}</h3>
+          <p class="text-gray-600">{t.features.compliance.description}</p>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-8">
+          <div class="text-blue-600 font-bold text-lg mb-4">{t.features.risk.title}</div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">{t.features.risk.heading}</h3>
+          <p class="text-gray-600">{t.features.risk.description}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Materials Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">{t.materials.title}</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">{t.materials.subtitle}</p>
+      </div>
+      
+      <div class="grid md:grid-cols-5 gap-4">
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm">
+          <div class="text-4xl mb-3">🧪</div>
+          <div class="font-semibold text-gray-900">{t.materials.phosphate}</div>
+        </div>
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm">
+          <div class="text-4xl mb-3">🌱</div>
+          <div class="font-semibold text-gray-900">{t.materials.fertilizer}</div>
+        </div>
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm">
+          <div class="text-4xl mb-3">⚡</div>
+          <div class="font-semibold text-gray-900">{t.materials.sulphur}</div>
+        </div>
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm">
+          <div class="text-4xl mb-3">�ite</div>
+          <div class="font-semibold text-gray-900">{t.materials.minerals}</div>
+        </div>
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm">
+          <div class="text-4xl mb-3">💎</div>
+          <div class="font-semibold text-gray-900">{t.materials.stone}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">{t.process.title}</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">{t.process.subtitle}</p>
+      </div>
+      
+      <div class="grid md:grid-cols-5 gap-4">
+        <div class="text-center">
+          <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
+            {t.process.step1.title}
+          </div>
+          <h3 class="font-semibold text-gray-900 mb-2">{t.process.step1.heading}</h3>
+          <p class="text-sm text-gray-600">{t.process.step1.description}</p>
+        </div>
+        <div class="text-center">
+          <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
+            {t.process.step2.title}
+          </div>
+          <h3 class="font-semibold text-gray-900 mb-2">{t.process.step2.heading}</h3>
+          <p class="text-sm text-gray-600">{t.process.step2.description}</p>
+        </div>
+        <div class="text-center">
+          <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
+            {t.process.step3.title}
+          </div>
+          <h3 class="font-semibold text-gray-900 mb-2">{t.process.step3.heading}</h3>
+          <p class="text-sm text-gray-600">{t.process.step3.description}</p>
+        </div>
+        <div class="text-center">
+          <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
+            {t.process.step4.title}
+          </div>
+          <h3 class="font-semibold text-gray-900 mb-2">{t.process.step4.heading}</h3>
+          <p class="text-sm text-gray-600">{t.process.step4.description}</p>
+        </div>
+        <div class="text-center">
+          <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
+            {t.process.step5.title}
+          </div>
+          <h3 class="font-semibold text-gray-900 mb-2">{t.process.step5.heading}</h3>
+          <p class="text-sm text-gray-600">{t.process.step5.description}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / Contact Section -->
+  <section id="contact" class="py-20 bg-gradient-to-br from-blue-600 to-blue-800">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-white mb-4">{t.cta.title}</h2>
+        <p class="text-blue-100">{t.cta.subtitle}</p>
+        <p class="text-blue-200 text-sm mt-2">{t.cta.note}</p>
+      </div>
+      
+      <div class="bg-white rounded-xl p-8">
+        <ContactForm client:load lang={lang} />
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <span class="text-xl font-bold text-white">Geoprocure</span>
+          <p class="text-gray-400 text-sm">Estonian Trading House</p>
+        </div>
+        <div class="text-gray-400 text-sm">
+          © {new Date().getFullYear()} Geoprocure. {t.footer.rights}
+        </div>
+      </div>
+    </div>
+  </footer>
+</Layout>
