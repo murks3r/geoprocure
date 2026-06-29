@@ -1,0 +1,43 @@
+---
+interface Props {
+  currentLang?: string;
+}
+
+const { currentLang = 'en' } = Astro.props;
+
+const languages = [
+  { code: 'en', label: 'EN', name: 'English' },
+  { code: 'de', label: 'DE', name: 'Deutsch' },
+  { code: 'it', label: 'IT', name: 'Italiano' },
+  { code: 'es', label: 'ES', name: 'Español' },
+  { code: 'fr', label: 'FR', name: 'Français' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<div class="relative group">
+  <button
+    type="button"
+    class="flex items-center gap-1 px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
+  >
+    {languages.find(l => l.code === currentLang)?.label}
+    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+    </svg>
+  </button>
+  
+  <div class="absolute right-0 mt-1 w-32 bg-white rounded-lg shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+    {languages.map(lang => (
+      <a
+        href={lang.code === 'en' ? '/' : `/${lang.code}`}
+        class:list={[
+          "block px-4 py-2 text-sm hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg",
+          currentLang === lang.code ? "bg-blue-50 text-blue-600 font-medium" : "text-gray-700"
+        ]}
+      >
+        {lang.name}
+      </a>
+    ))}
+  </div>
+</div>
